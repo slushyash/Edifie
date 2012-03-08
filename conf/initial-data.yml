@@ -1,0 +1,8 @@
+#nothing to see here
+Student(maxciottsi):
+firstName: "Max"
+middleName: ""
+lastName: "Ciotti"
+hashedPassword: "arst"
+gradeLevel: 11
+email: "mdciotti@gmail.com"
