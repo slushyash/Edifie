@@ -16,10 +16,9 @@ public class CourseDay extends Model {
 	@ManyToOne
 	public CourseTimeSlot timeslot;
 
-    public CourseDay(Date date, CourseTimeSlot timeslot, int day, GeneralCourseDay g) {
+    public CourseDay(Date date, CourseTimeSlot timeslot, GeneralCourseDay g) {
         this.date = date;
         this.timeslot = timeslot;
-        this.day = day;
         this.generalCourseDay = g;
     }
 

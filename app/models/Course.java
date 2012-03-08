@@ -9,21 +9,21 @@ import org.joda.time.*;
 @Entity
 public class Course extends Model {
 
-	@OneToOne
+	@ManyToOne
 	public Teacher teacher;
 
-	@OneToMany
+	@ManyToMany
 	public List<Student> students;
 
 	public String name;
 
-	@OneToMany
+	@OneToMany(mappedBy="course")
 	public List<Activity> activities;
 
-	@OneToMany
+	@OneToMany(mappedBy="course")
 	public List<CourseTimeSlot> timeSlots;
 
-	@OneToMany
+	@OneToMany(mappedBy="course")
 	public List<GeneralCourseDay> courseDays;
 
 
@@ -44,7 +44,7 @@ public class Course extends Model {
     }
 
     public List<Activity> getActivitiesDue(int day) {
-    	List<Activity> activities = Activity.find("select a from Activity a where a.course.id = ? AND a.due.day = ?", this.id, day);
+    	List<Activity> activities = Activity.find("select a from Activity a where a.course.id = ? AND a.due.day = ?", this.id, day).fetch();
     	return activities;
     }
 

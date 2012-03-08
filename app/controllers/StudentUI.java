@@ -10,7 +10,8 @@ import models.*;
 public class StudentUI extends Controller {
 
     public static void index() {
-    	Student student = Student.find("byEmail", StudentLogin.connected()).first();
+    	List<Course> courses = Course.findAll();
+        renderText(courses.toString());
     }
 
 }

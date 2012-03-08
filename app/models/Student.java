@@ -16,7 +16,7 @@ public class Student extends Model {
 	public String lastName;
     public String hashedPassword;
     public int gradeLevel; // like 9 for fishie, 10 for soph, etc
-    @OneToMany
+    @ManyToMany
     public List<Course> courses;
     public String email;
     @OneToMany
@@ -37,7 +37,7 @@ public class Student extends Model {
 
     public HashMap getAllGrades() {
         HashMap grades = new HashMap<Integer, Double>(15);
-        for(Course c : this.courses) { grades.put(c.id, this.getAverage(c.id)); }
+        for(Course c : this.courses) { grades.put(c.id, this.getGrade(c)); }
         return grades;
     }
 
@@ -68,7 +68,7 @@ public class Student extends Model {
         // there HAS to be a better way to do this...
         String orQuery = "";
         for(int i = 0; i < schedule.size() - 1; i++) {
-            orQuery += "c.timeslot.id = "
+            orQuery += "c.timeslot.id = ";
             orQuery += "" + schedule.get(i).id + " ";
             if(i != schedule.size() - 1) {
                 orQuery += "or ";
