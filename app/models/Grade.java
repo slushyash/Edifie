@@ -8,7 +8,7 @@ import play.db.jpa.*;
 @Entity
 public class Grade extends Model {
 
-	public int grade;
+	public double grade;
 
 	@ManyToOne
 	public Activity assignment;

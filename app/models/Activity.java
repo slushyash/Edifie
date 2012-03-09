@@ -10,6 +10,7 @@ public class Activity extends Model {
 
     public Blob file;
     public String name; // Test 2: Animal Types
+    @ManyToOne
     public Course course;
 
     public double weight;

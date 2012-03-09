@@ -13,11 +13,14 @@ public class GeneralCourseDay extends Model {
 
 	public int day;
 
-	@ManyToMany
+	@OneToMany
 	public List<Activity> due;
 
-    public GeneralCourseDay(Course course, int day) {
+	public String description;
+
+    public GeneralCourseDay(Course course, int day, String description) {
         this.course = course;
         this.day = day;
+        this.description = description;
     }
 }

@@ -11,7 +11,7 @@ public class CourseTimeSlot extends Model {
 	@OneToOne
 	public Course course;
 
-	@OneToMany
+	@ManyToMany
 	public List<Student> students;
 
 	@OneToMany
