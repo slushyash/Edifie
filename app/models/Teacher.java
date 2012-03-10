@@ -13,9 +13,8 @@ public class Teacher extends Model {
     public String middleName;
 	public String lastName;
     public String hashedPassword;
-    @OneToMany // should be manytomany. for simplicity
+    @OneToMany
     public List<Course> coursesTeaching;
-    //public String id; // int?
     public String email;
 
     

@@ -17,7 +17,7 @@ public class Course extends Model {
 
 	public String name;
 
-	@OneToMany(mappedBy="course")
+	@OneToMany(mappedBy="course", cascade=CascadeType.ALL)
 	public List<Activity> activities;
 
 	@OneToMany(mappedBy="course")
